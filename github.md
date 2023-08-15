@@ -1,5 +1,14 @@
 # GitHub
 
+<div class="admonition note">
+<p class="first admonition-title">
+Note
+</p>
+<p class="last">
+It is no longer necessary to configure <a href="#ssh">SSH</a> or create a <a href="#personal-access-token">personal access token</a> when using <a href="/code/">Visual Studio Code for CS50</a> at <a href="https://code.cs50.io/">code.cs50.io</a>. Both <code class="docutils literal notranslate"><span class="pre">check50</span></code> and <code class="docutils literal notranslate"><span class="pre">submit50</span></code> should "just work," so long as you have logged into <a href="https://submit.cs50.io/">submit.cs50.io</a> at least once.
+</p>
+</div>
+
 Tools like [check50](https://cs50.readthedocs.io/projects/check50/en/latest/) and [submit50](/submit50/) rely on `git`, a popular tool for saving different versions of code, and [GitHub](https://github.com/), a popular website for saving those versions in the cloud. To push (i.e., save) your code to GitHub using `git`, it used to be possible to log into GitHub via a command line (as in a terminal window) using a GitHub username and password. As of [August 13, 2021](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/), that's no longer possible, which means you can no longer use `check50` or `submit50` using your GitHub username and password either.
 
 But you can still use `check50` and `submit50`! You just need to log in a bit differently, either using [SSH](#ssh) or a [personal access token](#personal-access-token). Odds are you'll find SSH more convenient for [Visual Studio Code](/code/) and [CS50 IDE](/ide/index), and personal access tokens more convenient for [CS50 Sandbox](/sandbox/) and [CS50 Lab](/lab/).
@@ -24,6 +33,7 @@ But you can still use `check50` and `submit50`! You just need to log in a bit di
     This key is not known by any other names
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
     ```
+1. If you input a "passphrase" (i.e., password) earlier, enter the passphrase and press Enter when you see the following prompt  `"Enter passphrase for key 'home/ubuntu/.ssh/id_rsa':"`
 1. You should be greeted with `"Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access."`  If you don't see that, review the above steps to verify you didn't skip something.
 
 You should now be able to use `check50` and `submit50` (and `git`) without GitHub username and password. But if you created a passphrase, you might still be prompted for that.

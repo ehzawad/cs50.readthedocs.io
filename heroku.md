@@ -1,6 +1,6 @@
 # Heroku
 
-[Heroku](https://www.heroku.com/) is a "platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud." Heroku even offers a [free plan](https://www.heroku.com/pricing).
+[Heroku](https://www.heroku.com/) is a "platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud."
 
 Here's how to deploy your implementation of, say, [C$50 Finance](https://cs50.harvard.edu/x/2020/tracks/web/finance/) to Heroku from GitHub.
 
@@ -87,7 +87,7 @@ Here's how to deploy your implementation of, say, [C$50 Finance](https://cs50.ha
 
     1. Add a new variable called **API_KEY**, the value of which is your API token for IEX. Recall that, after registering for a developer account at <https://iexcloud.io/>, you can obtain your API token under **API Tokens**. Be sure to use your **PUBLISHABLE** token as the value for **API_KEY**, not your **SECRET** token.
 
-1. Search for and provision **Heroku Postgres** add-ons at `https://dashboard.heroku.com/apps/app-name/resources`, where `app-name` is your Heroku app's name; select a **Plan name** of **Hobby Dev — Free**.
+1. Search for and provision **Heroku Postgres** add-ons at `https://dashboard.heroku.com/apps/app-name/resources`, where `app-name` is your Heroku app's name; select a **Plan name** of **Mini**.
 
 1. At `https://dashboard.heroku.com/apps/app-name/resources`, where `app-name` is your Heroku app's name, click **Heroku Postgres**. In the tab that opens, click **Settings**, then click **View Credentials...**. Highlight and copy the **URI** that appears.
 
@@ -116,10 +116,10 @@ Here's how to deploy your implementation of, say, [C$50 Finance](https://cs50.ha
 
 1. Ensure that any column that's a primary key has the `AUTOINCREMENT` keyword, [re-creating it if need be](https://stackoverflow.com/a/10464323/5156190).
 
-1. In Visual Studio Code or CS50 IDE, execute the below to import `finance.db` into your PostgreSQL database, where `URI` is that same URI. Be sure to append `?sslmode=require` to the URI. Note that disabling SSL's certification verification with `--no-ssl-cert-verification` is not recommended in general but seems to be a [temporary workaround](https://github.com/dimitri/pgloader/commit/16dda01f371f033e0df75d80127643605df7830f).
+1. In Visual Studio Code or CS50 IDE, execute the below to import `finance.db` into your PostgreSQL database, where `URI` is that same URI. Be sure to append `?sslmode=allow` to the URI. Note that disabling SSL's certification verification with `--no-ssl-cert-verification` is not recommended in general but seems to be a [temporary workaround](https://github.com/dimitri/pgloader/commit/16dda01f371f033e0df75d80127643605df7830f).
 
     ```
-    pgloader --no-ssl-cert-verification finance.db URI?sslmode=require
+    pgloader --no-ssl-cert-verification finance.db URI?sslmode=allow
     ```
 
     Thereafter, if you'd like to browse or edit your PostgreSQL database, you can use Adminer (a tool like phpLiteAdmin for PostgreSQL databases), at [adminer.cs50.net](https://adminer.cs50.net/). Log in using your database's credentials: at `https://dashboard.heroku.com/apps/app-name/resources`, where `app-name` is your Heroku app's name, click **Heroku Postgres**. In the tab that opens, click **Settings**, then click **View Credentials...**.

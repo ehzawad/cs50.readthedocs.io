@@ -75,12 +75,11 @@
    :hidden:
    :maxdepth: 1
 
+   certificates
    forms
    id
-   ide/index
-   lab
+   manual
    render
-   sandbox
    time
    vault
    video

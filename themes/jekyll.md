@@ -213,6 +213,23 @@ cs50:
 
 The value of `description` will then be used as the site's `og:description` value.
 
+### fontawesome
+
+By default, CS50's theme includes Font Awesome's [free icons](https://fontawesome.com/search?o=r&m=free). If you have a license for Font Awesome's [pro icons](https://fontawesome.com/search), though, use a `fontawesome` key like:
+
+```text
+cs50:
+  fontawesome: VALUE
+```
+
+wherein `VALUE` is the unique identifier for your [kit](https://fontawesome.com/kits/). For instance, if your **CSS Kit Embed Code** is
+
+```html
+<link rel="stylesheet" href="https://kit.fontawesome.com/1234567890.css" crossorigin="anonymous">
+```
+
+use `1234567890` for `VALUE`. (Don't use the whole URL, and don't use the HTML itself.)
+
 ### locale
 
 To define the site's locale (e.g., French), use a `locale` key like:
@@ -237,7 +254,7 @@ The value of `title` will then be used in the site's `title` tags and `og:title`
 
 ### tz
 
-To define the site's time zone (e.g., Pacific Time), use a `tz` key like
+To define the site's time zone (to be, e.g., Pacific Time), use a `tz` key like
 
 ```text
 cs50:
@@ -247,6 +264,15 @@ cs50:
 wherein the value is a [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). By default, the value of `tz` is assumed to be `America/New_York`.
 
 The value of `tz` is used by CS50's [`local`](#local) tag.
+
+To override the site's time zone for a particular page (to be, e.g., UTC), use a `tz` key like
+
+```text
+cs50:
+  tz: UTC
+```
+
+in the page's own YAML front matter. Note, though, that pages with YAML front matter [cannot](https://github.com/jekyll/jekyll/issues/3050#issuecomment-61540466) be [included](https://jekyllrb.com/docs/includes/) in other pages.
 
 ## Plugins
 
